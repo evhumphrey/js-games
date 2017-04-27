@@ -75,13 +75,6 @@ Game.prototype.run = function(completionCallback) {
     console.log("You win 🎉");
     completionCallback();
   }
-  // until first tower is empty + other tower has three
-    // getMove --> get from_tower and to_tower
-    // makeMove --> check if valid, move
-
-  // game over, close reader
-
 };
 
-const game = new Game();
-game.run(() => reader.close());
+module.exports = Game;
