@@ -13,11 +13,28 @@ class Board {
   }
 
   isWon() {
-    if (this.getWinner()) {
+    let winnerMark = this.getWinner();
+    if (winnerMark) {
+      console.log(`Winner is ${winnerMark}`);
+      return true;
+    } else if (this.isFull()) {
+      console.log('😹 Game');
       return true;
     }
 
     return false;
+  }
+
+  isFull() {
+    for(let i = 0; i < 3; i++){
+      for(let j = 0; j<3; j++){
+        if (this.isEmpty([i,j])) {
+          return false;
+        }
+      }
+    }
+
+    return true;
   }
 
   getWinner() {
@@ -91,3 +108,5 @@ class Board {
     return mark;
   }
 }
+
+module.exports = Board;
